@@ -107,7 +107,21 @@ header {
 	cursor: pointer;
 	transition: background-color 0.3s;
 }
-
+.progress_Bar {
+	width: 0%;
+	background-color: #1d1f1e;
+	color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+	font-size: 20px;
+	font-weight: bold;
+	padding: 10px 50px;
+}
+.progress_Container {
+	padding: 10px;
+	text-align: center;
+	align-items: center;
+}
 #uploadButton:hover {
 	background-color: #262927;
 }

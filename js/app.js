@@ -8,6 +8,8 @@ const fileInput = document.getElementById('fileInput')
 const uploadButton = document.getElementById('uploadButton')
 const galleryContainer = document.getElementById('galleryContainer')
 const messageDiv = document.getElementById('messageDiv')
+const progressContainer = document.getElementById('progressContainer')
+const progressBar = document.getElementById('progressBar')
 // Перевірка авторизації
 checkAuthStatus(userInfo, loginLink, logoutButton, messageDiv)
 
@@ -24,19 +26,25 @@ uploadButton.addEventListener('click', async event => {
 		const file = fileInput.files[0]
 		if (file) {
 			const uploadTask = uploadImage(file, user)
+			progressContainer.style.display = 'flex' // Показуємо прогрес
+
 			uploadTask.on(
 				'state_changed',
 				snapshot => {
 					const progress =
 						(snapshot.bytesTransferred / snapshot.totalBytes) * 100
-					console.log(`Завантажено ${progress}%`)
+					progressBar.style.width = `${progress}%` // Оновлюємо ширину прогрес-бара
+					progressBar.innerText = `${Math.round(progress)}%` // Текст всередині бара
 				},
 				error => {
 					console.error('Помилка завантаження:', error)
+					progressContainer.style.display = 'none' // Ховаємо прогрес при помилці
 				},
 				() => {
-					// Завантаження завершено, перезавантажуємо сторінку
-					window.location.reload()
+					setTimeout(() => {
+						progressContainer.style.display = 'none' // Ховаємо прогрес
+						window.location.reload()
+					}, 1000) // Затримка перед перезавантаженням
 				}
 			)
 		}

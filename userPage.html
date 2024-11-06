@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Сторінка користувача</title>
+		<title>Arcanum profile</title>
 		<link rel="stylesheet" href="css/styles.css" />
 	</head>
 	<body>
@@ -19,21 +19,27 @@
 				</div>
 			</header>
 			<div class="content">
-			<div class="fileInput-box">
-				<input class="fileInput" type="file" id="fileInput" />
-				<label for="fileInput" class="file-label">
-					<span>&#x1F4E4;</span> Оберіть файл
-				</label>
+				<div class="fileInput-box">
+					<input class="fileInput" type="file" id="fileInput" />
+					<label for="fileInput" class="file-label">
+						<span>&#x1F4E4;</span> Оберіть файл
+					</label>
 
-				<div id="messageDiv" style="display: none; color: red"></div>
-			</div>
-			<button id="uploadButton">Завантажити</button>
+					<div id="messageDiv" style="display: none; color: red"></div>
+				</div>
+				<button id="uploadButton">Завантажити</button>
+				<div
+					class="progress_Container"
+					id="progressContainer"
+					style="display: none"
+				>
+					<div class="progress_Bar" id="progressBar"></div>
+				</div>
+
 				<div id="galleryContainer" class="galleryContainer"></div>
 			</div>
 		</div>
-		</div>
-		
-		
+
 		<script type="module" src="/js/app.js"></script>
 	</body>
 </html>
